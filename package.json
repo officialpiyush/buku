@@ -6,7 +6,8 @@
     "dev": "nuxi dev",
     "start": "node .output/server/index.mjs",
     "lint": "eslint .",
-    "postinstall": "nuxi prepare",
+    "lint:fix": "eslint . --fix",
+    "postinstall": "nuxi prepare && husky install",
     "generate": "nuxi generate"
   },
   "devDependencies": {
