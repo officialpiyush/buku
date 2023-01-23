@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
 const auth = useFirebaseAuth()!
-const user = useCurrentUser()
 
 const signIn = async () => {
   const provider = new GoogleAuthProvider()
