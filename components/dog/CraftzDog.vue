@@ -25,9 +25,6 @@ const onResize = () => {
 }
 
 onMounted(() => {
-  // eslint-disable-next-line no-console
-  console.log('onMounted', containerRef.value)
-
   const container = containerRef.value
   if (container) {
     const containerWidth = container.clientWidth
