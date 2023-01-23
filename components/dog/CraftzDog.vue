@@ -67,7 +67,6 @@ onMounted(() => {
     scene.add(ambientLight)
 
     const controls = new OrbitControls(camera, renderer.domElement)
-    controls.autoRotate = true
     controls.target = target
 
     let frame = 0
