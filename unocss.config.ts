@@ -14,7 +14,9 @@ export default defineConfig({
     presetUno(),
     presetAttributify(),
     presetIcons({
-      cdn: 'https://esm.sh/',
+      scale: 1.2,
+      // cdn: 'https://esm.sh/',
+      cdn: 'https://cdn.skypack.dev/',
     }),
     presetTypography(),
     presetWebFonts({
