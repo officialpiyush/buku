@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <nav />
-    <main class="py-20 px-10 text-center">
+  <div font-mono h-screen pb-4 bg-zinc-900 text-white>
+    <nav>
+      <Navbar />
+    </nav>
+    <main py-4 max-w-7xl mx-auto>
       <slot />
     </main>
     <footer />
