@@ -21,7 +21,7 @@ const onResize = () => {
   const { clientWidth, clientHeight } = container
 
   renderer.setSize(clientWidth, clientHeight)
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  renderer.setPixelRatio(window.devicePixelRatio)
 }
 
 onMounted(() => {
