@@ -83,9 +83,6 @@ onMounted(() => {
         camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed)
         camera.lookAt(target)
       }
-      else {
-        controls.update()
-      }
 
       renderer.render(scene, camera)
     }
