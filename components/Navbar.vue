@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import LoginButton from './buttons/LoginButton.vue'
+import LogoutButton from './buttons/LogoutButton.vue'
 
+const user = useCurrentUser()
 </script>
 
 <template>
@@ -13,12 +16,8 @@
       </div>
 
       <div>
-        <Button px="12">
-          <div flex items-center gap-1>
-            <div h-4 w-4 i-ri-login-circle-line />
-            <span>Login</span>
-          </div>
-        </Button>
+        <LoginButton v-if="!user" />
+        <LogoutButton v-else />
       </div>
     </div>
   </div>
