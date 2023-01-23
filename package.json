@@ -14,6 +14,7 @@
     "@antfu/eslint-config": "^0.30.1",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
+    "@firebase/app-types": "^0.9.0",
     "@iconify-json/carbon": "^1.1.10",
     "@iconify-json/twemoji": "^1.1.5",
     "@nuxtjs/color-mode": "^3.2.0",
@@ -26,5 +27,11 @@
     "nuxt": "^3.0.0",
     "pinia": "^2.0.23",
     "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "firebase": "^9.16.0",
+    "firebase-admin": "^11.5.0",
+    "nuxt-vuefire": "^0.1.5",
+    "vuefire": "^3.0.1"
   }
 }
