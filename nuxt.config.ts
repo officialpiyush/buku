@@ -19,6 +19,9 @@ export default defineNuxtConfig({
           appId: '1:630053346756:web:8e630c742a612a4f5a5891',
           measurementId: 'G-LCCND887N7',
         },
+        admin: {
+          config: JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string),
+        },
       } as VueFireNuxtModuleOptions,
     ],
   ],
