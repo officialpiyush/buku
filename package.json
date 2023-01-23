@@ -19,6 +19,7 @@
     "@iconify-json/twemoji": "^1.1.5",
     "@nuxtjs/color-mode": "^3.2.0",
     "@pinia/nuxt": "^0.4.3",
+    "@types/three": "^0.148.0",
     "@unocss/nuxt": "^0.46.5",
     "@vueuse/nuxt": "^9.5.0",
     "eslint": "^8.27.0",
@@ -32,6 +33,7 @@
     "firebase": "^9.16.0",
     "firebase-admin": "^11.5.0",
     "nuxt-vuefire": "^0.1.5",
+    "three": "^0.148.0",
     "vuefire": "^3.0.1"
   }
 }

@@ -9,6 +9,7 @@ specifiers:
   '@iconify-json/twemoji': ^1.1.5
   '@nuxtjs/color-mode': ^3.2.0
   '@pinia/nuxt': ^0.4.3
+  '@types/three': ^0.148.0
   '@unocss/nuxt': ^0.46.5
   '@vueuse/nuxt': ^9.5.0
   eslint: ^8.27.0
@@ -19,6 +20,7 @@ specifiers:
   nuxt: ^3.0.0
   nuxt-vuefire: ^0.1.5
   pinia: ^2.0.23
+  three: ^0.148.0
   typescript: ^4.9.3
   vuefire: ^3.0.1
 
@@ -26,6 +28,7 @@ dependencies:
   firebase: 9.16.0
   firebase-admin: 11.5.0
   nuxt-vuefire: 0.1.5_vildn5lfscegzvgfxbfh7ldnn4
+  three: 0.148.0
   vuefire: 3.0.1_firebase@9.16.0
 
 devDependencies:
@@ -37,6 +40,7 @@ devDependencies:
   '@iconify-json/twemoji': 1.1.5
   '@nuxtjs/color-mode': 3.2.0
   '@pinia/nuxt': 0.4.3_typescript@4.9.3
+  '@types/three': 0.148.0
   '@unocss/nuxt': 0.46.5
   '@vueuse/nuxt': 9.5.0_nuxt@3.0.0
   eslint: 8.27.0
@@ -2085,12 +2089,22 @@ packages:
       '@types/node': 18.7.23
     dev: false
 
+  /@types/three/0.148.0:
+    resolution: {integrity: sha512-1GiErjt1pJMadO8EhaxNrtULzdn+f3BbM3YTukiiXBVeRvvx4CXc2rpYdEuEBU/ouCX7Rc95j1HoVG9kFQXQJw==}
+    dependencies:
+      '@types/webxr': 0.5.0
+    dev: true
+
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: true
 
   /@types/web-bluetooth/0.0.16:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
+    dev: true
+
+  /@types/webxr/0.5.0:
+    resolution: {integrity: sha512-IUMDPSXnYIbEO2IereEFcgcqfDREOgmbGqtrMpVPpACTU6pltYLwHgVkrnYv0XhWEcjio9sYEfIEzgn3c7nDqA==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.42.1_a76fwnskzo2n3ynumjbqxmyj7i:
@@ -8269,6 +8283,10 @@ packages:
   /text-table/0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
+
+  /three/0.148.0:
+    resolution: {integrity: sha512-8uzVV+qhTPi0bOFs/3te3RW6hb3urL8jYEl6irjCWo/l6sr8MPNMcClFev/MMYeIxr0gmDcoXTy/8LXh/LXkfw==}
+    dev: false
 
   /through/2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
