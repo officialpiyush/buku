@@ -51,7 +51,7 @@ onMounted(() => {
       20 * Math.cos(0.2 * Math.PI),
     )
 
-    const scale = containerHeight * 0.005 + 4.8
+    const scale = containerHeight * 0.00000001 + 4.8
     const camera = new THREE.OrthographicCamera(
       -scale,
       scale,
