@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     ],
   ],
   experimental: {
+    inlineSSRStyles: false,
     reactivityTransform: true,
   },
   css: [
