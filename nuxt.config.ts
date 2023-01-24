@@ -2,7 +2,7 @@ import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
 import destr from 'destr'
 
 // eslint-disable-next-line no-console
-console.log(process.env)
+console.log(process.env as Record<string, string>)
 
 export default defineNuxtConfig({
   modules: [
