@@ -105,7 +105,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div h-lg w-xl>
+  <div h-xs w-xs lg:h-xl lg:w-xl>
     <div ref="containerRef" h-full w-full />
   </div>
 </template>
