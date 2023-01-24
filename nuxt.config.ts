@@ -1,5 +1,8 @@
 import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
 
+// eslint-disable-next-line no-console
+console.log(process.env)
+
 export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
