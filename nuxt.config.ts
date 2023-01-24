@@ -1,4 +1,5 @@
 import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
+import destr from 'destr'
 
 export default defineNuxtConfig({
   modules: [
@@ -20,12 +21,13 @@ export default defineNuxtConfig({
           measurementId: 'G-LCCND887N7',
         },
         admin: {
-          config: JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string),
+          config: destr(process.env.FIREBASE_SERVICE_ACCOUNT as string),
         },
       } as VueFireNuxtModuleOptions,
     ],
   ],
   experimental: {
+    inlineSSRStyles: false,
     reactivityTransform: true,
   },
   css: [
