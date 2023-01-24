@@ -36,5 +36,10 @@
     "nuxt-vuefire": "^0.1.5",
     "three": "^0.148.0",
     "vuefire": "^3.0.1"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "unenv@1.0.1": "patches/unenv@1.0.1.patch"
+    }
   }
 }

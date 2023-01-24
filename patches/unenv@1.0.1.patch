@@ -1,0 +1,47 @@
+diff --git a/runtime/node/events/index.cjs b/runtime/node/events/index.cjs
+index 9c63ea7c47e053fdb4b6fd7c4ba47f2853231cd5..23ede43c0bad305eb30c350f9afc7a216052b5a9 100644
+--- a/runtime/node/events/index.cjs
++++ b/runtime/node/events/index.cjs
+@@ -3,13 +3,16 @@
+ Object.defineProperty(exports, "__esModule", {
+   value: true
+ });
+-module.exports = exports.EventEmitter = void 0;
++exports.once = exports.default = exports.EventEmitter = void 0;
+ 
+ var _events = require("./_events.cjs");
+ 
+ const EventEmitter = _events.EventEmitter;
+ exports.EventEmitter = EventEmitter;
++const once = _events.once;
++exports.once = once;
+ var _default = {
+-  EventEmitter
++  EventEmitter,
++  once
+ };
+ module.exports = _default;
+\ No newline at end of file
+diff --git a/runtime/node/events/index.d.ts b/runtime/node/events/index.d.ts
+index 4d789a85398a8c126f03a577cb6c8fbcf5922beb..64a5ca99b4e41d60b0f2d42d626c02d199200107 100644
+--- a/runtime/node/events/index.d.ts
++++ b/runtime/node/events/index.d.ts
+@@ -1,3 +1,4 @@
+ export declare const EventEmitter: any;
++export declare const once: any;
+ declare const _default: any;
+ export default _default;
+diff --git a/runtime/node/events/index.mjs b/runtime/node/events/index.mjs
+index f21992992f7f5e258e026e32128c2b156da69bdd..711eda88e11525920beaea9e7fbc730e765ff680 100644
+--- a/runtime/node/events/index.mjs
++++ b/runtime/node/events/index.mjs
+@@ -1,5 +1,7 @@
+-import { EventEmitter as _EventEmitter } from "./_events.mjs";
++import { EventEmitter as _EventEmitter, once as _once } from "./_events.mjs";
+ export const EventEmitter = _EventEmitter;
++export const once = _once;
+ export default {
+-  EventEmitter
++  EventEmitter,
++  once
+ };
