@@ -1,9 +1,6 @@
 import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
 import destr from 'destr'
 
-// eslint-disable-next-line no-console
-console.log(process.env as Record<string, string>)
-
 export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
@@ -24,6 +21,7 @@ export default defineNuxtConfig({
           measurementId: 'G-LCCND887N7',
         },
         admin: {
+          config: destr(process.env.FIREBASE_SERVICE_ACCOUNT as string),
           config: destr(process.env.FIREBASE_SERVICE_ACCOUNT as string),
         },
       } as VueFireNuxtModuleOptions,
