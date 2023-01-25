@@ -30,6 +30,15 @@ export default defineNuxtConfig({
     inlineSSRStyles: true,
     reactivityTransform: true,
   },
+  nitro: {
+    routeRules: {
+      '/dog.glb': {
+        headers: {
+          'Cache-Control': 'public, max-age=31536000, immutable',
+        },
+      },
+    },
+  },
   css: [
     '@unocss/reset/tailwind.css',
   ],
