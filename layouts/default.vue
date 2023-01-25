@@ -1,5 +1,5 @@
 <template>
-  <div font-mono min-h-screen lg:h-screen pb-4 bg-zinc-900 text-white flex="~ col">
+  <div font-mono min-h-screen pb-4 bg-zinc-900 text-white flex="~ col">
     <nav flex-shrink-0>
       <Navbar />
     </nav>
