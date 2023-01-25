@@ -1,5 +1,6 @@
 import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
 import destr from 'destr'
+import type { BuildInfo } from './types'
 
 export default defineNuxtConfig({
   modules: [
@@ -27,6 +28,12 @@ export default defineNuxtConfig({
       } as VueFireNuxtModuleOptions,
     ],
   ],
+  runtimeConfig: {
+    public: {
+      env: '',
+      buildInfo: {} as BuildInfo,
+    },
+  },
   experimental: {
     inlineSSRStyles: true,
     reactivityTransform: true,
