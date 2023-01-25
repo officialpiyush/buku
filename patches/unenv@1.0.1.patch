@@ -1,3 +1,23 @@
+diff --git a/package.json b/package.json
+index 710cddcd76c354cbbbbad3fd108edcbfa1eabef3..6da18dda440f30d7e27a4f035c4f199801423271 100644
+--- a/package.json
++++ b/package.json
+@@ -34,13 +34,13 @@
+     "@types/node": "^18.11.18",
+     "consola": "^2.15.3",
+     "eslint": "^8.31.0",
+-    "eslint-config-unjs": "^0.0.3",
++    "eslint-config-unjs": "^0.1.0",
+     "prettier": "^2.8.1",
+     "standard-version": "^9.5.0",
+     "typescript": "^4.9.4",
+     "unbuild": "^1.0.2"
+   },
+-  "packageManager": "pnpm@7.21.0",
++  "packageManager": "pnpm@7.26.0",
+   "scripts": {
+     "build": "unbuild",
+     "lint": "eslint --ext .ts . && prettier -c src",
 diff --git a/runtime/node/events/index.cjs b/runtime/node/events/index.cjs
 index 9c63ea7c47e053fdb4b6fd7c4ba47f2853231cd5..23ede43c0bad305eb30c350f9afc7a216052b5a9 100644
 --- a/runtime/node/events/index.cjs

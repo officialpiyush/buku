@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 patchedDependencies:
   unenv@1.0.1:
-    hash: 45s5zxfjdbxldckllza2r7dowq
+    hash: 4qexdxybtx7kqdjqmz3c37qlay
     path: patches/unenv@1.0.1.patch
 
 specifiers:
@@ -61,7 +61,7 @@ devDependencies:
   simple-git: 3.16.0
   std-env: 3.3.1
   typescript: 4.9.4
-  unenv: link:patches/unenv
+  unenv: 1.0.1_4qexdxybtx7kqdjqmz3c37qlay
 
 packages:
 
@@ -6797,7 +6797,7 @@ packages:
       source-map-support: 0.5.21
       std-env: 3.3.1
       ufo: 1.0.1
-      unenv: 1.0.1_45s5zxfjdbxldckllza2r7dowq
+      unenv: 1.0.1_4qexdxybtx7kqdjqmz3c37qlay
       unimport: 1.3.0_rollup@3.10.1
       unstorage: 1.0.1
     transitivePeerDependencies:
@@ -7010,7 +7010,7 @@ packages:
       ufo: 1.0.1
       ultrahtml: 1.2.0
       unctx: 2.1.1
-      unenv: 1.0.1_45s5zxfjdbxldckllza2r7dowq
+      unenv: 1.0.1_4qexdxybtx7kqdjqmz3c37qlay
       unhead: 1.0.18
       unimport: 2.0.1
       unplugin: 1.0.1
@@ -8830,7 +8830,7 @@ packages:
       busboy: 1.6.0
     dev: true
 
-  /unenv/1.0.1_45s5zxfjdbxldckllza2r7dowq:
+  /unenv/1.0.1_4qexdxybtx7kqdjqmz3c37qlay:
     resolution: {integrity: sha512-08MoQ5+Edg9ckEP5y6vT8R6sOgCsNPxwPA1mKIOyergTtPOOuSyyJnbmF8CdnUplO2TUqSm0s1IysCkylxmndw==}
     dependencies:
       defu: 6.1.2
