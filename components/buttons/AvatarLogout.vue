@@ -6,12 +6,15 @@ const user = useCurrentUser()
 const userName = computed(() => user.value?.displayName?.split(' ')[0] ?? 'User')
 
 const signOut = () => firebaseSignOut(auth)
+
+function useKittenImage(imageErrorEvent: Event) {
+  (imageErrorEvent.target as HTMLImageElement).src = 'https://placekitten.com/96/140'
+}
 </script>
 
 <template>
-  <button flex items-center gap-2 px-4 py-1 bg-red-600 bg-opacity-20 text-red-600 hover="bg-opacity-22" rounded @click="signOut">
-    <div h-4 w-4 i-ri-logout-circle-line />
-    <span>Logout,{{ userName }}</span>
+  <button rounded-full @click="signOut">
+    <img h-8 w-8 rounded-full :src="user?.photoURL || 'https://placekitten.com/96/140'" alt="dp" @error="useKittenImage">
   </button>
 </template>
 
