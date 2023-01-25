@@ -22,7 +22,6 @@ export default defineNuxtConfig({
         },
         admin: {
           config: destr(process.env.FIREBASE_SERVICE_ACCOUNT as string),
-          config: destr(process.env.FIREBASE_SERVICE_ACCOUNT as string),
         },
       } as VueFireNuxtModuleOptions,
     ],
