@@ -6,6 +6,8 @@
     <main flex-1 py-4 max-w-7xl mx-auto>
       <slot />
     </main>
-    <footer flex-shrink-0 />
+    <footer flex-shrink-0>
+      <Footer />
+    </footer>
   </div>
 </template>
