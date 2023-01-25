@@ -38,6 +38,11 @@ export default defineNuxtConfig({
     inlineSSRStyles: true,
     reactivityTransform: true,
   },
+  nitro: {
+    prerender: {
+      routes: ['/'],
+    },
+  },
   css: [
     '@unocss/reset/tailwind.css',
   ],
