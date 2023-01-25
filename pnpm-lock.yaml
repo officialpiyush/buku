@@ -26,6 +26,7 @@ specifiers:
   nuxt: ^3.1.0
   nuxt-vuefire: ^0.1.5
   pinia: ^2.0.29
+  simple-git: ^3.16.0
   std-env: ^3.3.1
   three: ^0.148.0
   typescript: ^4.9.4
@@ -57,6 +58,7 @@ devDependencies:
   lint-staged: 13.1.0
   nuxt: 3.1.0_tjxknrp5okovqtrxh5aihvdm5y
   pinia: 2.0.29_prq2uz4lho2pwp6irk4cfkrxwu
+  simple-git: 3.16.0
   std-env: 3.3.1
   typescript: 4.9.4
   unenv: 1.0.1_45s5zxfjdbxldckllza2r7dowq
@@ -1707,6 +1709,18 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
+    dev: true
+
+  /@kwsites/file-exists/1.1.1:
+    resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
+    dependencies:
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@kwsites/promise-deferred/1.1.1:
+    resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
     dev: true
 
   /@mapbox/node-pre-gyp/1.0.10:
@@ -8179,6 +8193,16 @@ packages:
 
   /signal-exit/3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
+    dev: true
+
+  /simple-git/3.16.0:
+    resolution: {integrity: sha512-zuWYsOLEhbJRWVxpjdiXl6eyAyGo/KzVW+KFhhw9MqEEJttcq+32jTWSGyxTdf9e/YCohxRE+9xpWFj9FdiJNw==}
+    dependencies:
+      '@kwsites/file-exists': 1.1.1
+      '@kwsites/promise-deferred': 1.1.1
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /sirv/2.0.2:
