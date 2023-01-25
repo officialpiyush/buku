@@ -12,12 +12,12 @@ const signOut = () => firebaseSignOut(auth)
 <template>
   <NuxtLink
     v-if="currentRoute.path !== '/app'"
-    to="/app" flex items-center gap-1 px-8 py-2 bg-green-600 bg-opacity-20 text-green-600
+    to="/app" flex items-center gap-2 px-8 py-2 bg-green-600 bg-opacity-20 text-green-600
     hover="bg-opacity-22" rounded
   >
-    <div h-4 w-4 text-green-600 i-pixelarticons-book-open />
+    <div h-5 w-5 text-green-600 i-pixelarticons-book-open />
     <span>Continue to App</span>
-    <div h-4 w-4 i-ri-arrow-drop-right-line />
+    <div h-5 w-5 i-ri-arrow-drop-right-line />
   </NuxtLink>
 </template>
 
