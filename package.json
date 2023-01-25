@@ -1,5 +1,6 @@
 {
   "private": true,
+  "version": "2.0.0-rc",
   "packageManager": "pnpm@7.26.0",
   "scripts": {
     "build": "nuxi build",
