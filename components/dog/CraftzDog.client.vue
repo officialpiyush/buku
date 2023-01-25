@@ -98,8 +98,6 @@ const displayDog = () => {
 }
 
 watch(containerRef, (newRef, oldRef) => {
-  if (import.meta.env.SSR)
-    return
   if (!newRef || newRef === oldRef)
     return
 
@@ -116,20 +114,12 @@ onUnmounted(() => {
 
 <template>
   <div h-xs w-xs lg:h-xl lg:w-xl relative>
-    <ClientOnly>
-      <div h-full w-full>
-        <div v-if="loading" text-gray-400 absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center>
-          <div h-12 w-12 lg="h-18 w-18" animate-spin animate-duration-200 i-ri-loader-line />
-        </div>
-        <div ref="containerRef" h-full w-full />
+    <div h-full w-full>
+      <div v-if="loading" text-gray-400 absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center>
+        <div h-12 w-12 lg="h-18 w-18" animate-spin animate-duration-200 i-ri-loader-line />
       </div>
-
-      <template #fallback>
-        <div absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center>
-          <img h-12 w-12 lg="h-18 w-18" animate-spin animate-duration-200 i-ri-loader-line>
-        </div>
-      </template>
-    </ClientOnly>
+      <div ref="containerRef" h-full w-full />
+    </div>
   </div>
 </template>
 
