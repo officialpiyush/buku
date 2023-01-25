@@ -6,12 +6,12 @@ const user = useCurrentUser()
 <template>
   <div px-4 py-4 border-b-1 border-stone-600>
     <div max-w-7xl mx-auto flex items-center justify-between>
-      <div flex items-center gap="1.5">
-        <div h-8 w-8 text-green-600 i-pixelarticons-book-open />
-        <div text-xl font-bold>
+      <NuxtLink to="/" h-full flex items-center gap="2">
+        <div h-10 w-10 text-green-600 i-pixelarticons-book-open />
+        <div text-2xl font-bold>
           Buku
         </div>
-      </div>
+      </NuxtLink>
 
       <div>
         <LoginButton v-if="!user" />
