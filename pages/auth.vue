@@ -3,14 +3,14 @@ const user = useCurrentUser()
 </script>
 
 <template>
-  <div>
+  <div px-8>
     <div v-if="!user" flex flex-col gap-4>
-      You need to be logged in to access the page
+      <span class="text-center">You need to be logged in to access the page</span>
       <ButtonsLoginButton />
     </div>
 
     <div v-else flex flex-col gap-4>
-      You are logged in as {{ user.displayName }}
+      <span class="text-center">You are logged in as {{ user.displayName }}</span>
       <ButtonsLogout />
     </div>
   </div>
