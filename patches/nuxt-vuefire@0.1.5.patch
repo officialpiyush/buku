@@ -144,7 +144,7 @@ index 59751b65b966f9df06c386a7c8cf3012da4f5c6a..74c1875b7717f610f6963c1e16573e38
  function isFirebaseError(err) {
    return err != null && "code" in err;
 diff --git a/dist/runtime/admin/plugin.server.mjs b/dist/runtime/admin/plugin.server.mjs
-index 9c690cbf7ca21234177be93eedf2854c02e333aa..bfed16baffeed04d9e85000b244886d9ecfd28d8 100644
+index 9c690cbf7ca21234177be93eedf2854c02e333aa..71e0b81b21403761bdab9f3620960c23fd1cc4c0 100644
 --- a/dist/runtime/admin/plugin.server.mjs
 +++ b/dist/runtime/admin/plugin.server.mjs
 @@ -15,10 +15,13 @@ export default defineNuxtPlugin((nuxtApp) => {
@@ -161,7 +161,7 @@ index 9c690cbf7ca21234177be93eedf2854c02e333aa..bfed16baffeed04d9e85000b244886d9
        FUNCTION_NAME
      } = process.env;
      if (FIREBASE_CONFIG || FUNCTION_NAME) {
-@@ -31,6 +34,7 @@ export default defineNuxtPlugin((nuxtApp) => {
+@@ -31,12 +34,14 @@ export default defineNuxtPlugin((nuxtApp) => {
          credential = cert({
            projectId: FIREBASE_PROJECT_ID,
            clientEmail: FIREBASE_CLIENT_EMAIL,
@@ -169,7 +169,14 @@ index 9c690cbf7ca21234177be93eedf2854c02e333aa..bfed16baffeed04d9e85000b244886d9
            privateKey: FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n")
          });
        } else if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-@@ -48,6 +52,7 @@ You can also set the FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY and FIREBASE_PR
+         log("debug", "using GOOGLE_APPLICATION_CREDENTIALS env variable");
+         credential = applicationDefault();
+       } else if (typeof firebaseAdmin?.serviceAccount === "object" && firebaseAdmin.serviceAccount != null) {
++        console.log(firebaseAdmin?.serviceAccount);
+         credential = cert(firebaseAdmin.serviceAccount);
+       } else {
+         log(
+@@ -48,6 +53,7 @@ You can also set the FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY and FIREBASE_PR
          throw new Error("admin-app/missing-credentials");
        }
        initializeApp({
