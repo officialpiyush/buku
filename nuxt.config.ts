@@ -1,12 +1,15 @@
+import { isCI } from 'std-env'
 import JSON5 from 'json5'
 import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
 import type { BuildInfo } from './types'
 
-// eslint-disable-next-line no-console
-console.log(process.env)
+let firebaseConfig: object
 
-// eslint-disable-next-line no-console
-console.log(JSON5.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string))
+if (isCI)
+  firebaseConfig = JSON5.parse(JSON5.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string))
+
+else
+  firebaseConfig = JSON5.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string)
 
 export default defineNuxtConfig({
   // @ts-expect-error patched nuxt-vuefire
@@ -30,7 +33,7 @@ export default defineNuxtConfig({
           measurementId: 'G-LCCND887N7',
         },
         admin: {
-          serviceAccount: JSON5.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string),
+          serviceAccount: firebaseConfig,
         },
       } as VueFireNuxtModuleOptions],
   ],
