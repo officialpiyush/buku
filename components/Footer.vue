@@ -12,10 +12,10 @@ const timeAgo = useTimeAgo(time)
       Built
       <span>{{ timeAgo }}</span>
       |
-      <NuxtLink underline="~ unset" flex gap-1 :to="commitUrl" target="_blank">
-        {{ commit }}
+      <NuxtLink hover:text-green-700 underline="~ unset" flex gap="0.5" :to="commitUrl" target="_blank">
+        <div h-4 w-4 i-ri-git-branch-line />
+        {{ commit.slice(0, 8) }}
       </NuxtLink>
-      <div h-4 w-4 i-ri-git-branch-line />
     </div>
     <div flex items-center justify-center gap-2>
       <span>With</span>
