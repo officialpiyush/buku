@@ -18,7 +18,7 @@ index 683e3ed2c9c63d3d2b28181c3245a67201a39ace..e3040af1b914b4f37fdf96c6d19ff7ce
 -export { NuxtVueFireAppCheckOptions, NuxtVueFireAppCheckOptionsReCaptchaEnterprise, NuxtVueFireAppCheckOptionsReCaptchaV3, VueFireNuxtModuleOptions, VueFire as default };
 +export { NuxtVueFireAppCheckOptions, NuxtVueFireAppCheckOptionsReCaptchaEnterprise, NuxtVueFireAppCheckOptionsReCaptchaV3, VueFireNuxtModuleOptions, _default as default };
 diff --git a/dist/module.mjs b/dist/module.mjs
-index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60a42d6b7c 100644
+index bc7e2a21aa4ec30901d896e728b56d95a69812ed..c264bb3ed6c8a22f1e362f553b4bd1a809117833 100644
 --- a/dist/module.mjs
 +++ b/dist/module.mjs
 @@ -23,7 +23,7 @@ function isLogType(logType) {
@@ -30,7 +30,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60
    meta: {
      name: "vuefire",
      configKey: "vuefire",
-@@ -43,9 +43,7 @@ const VueFire = defineNuxtModule({
+@@ -43,19 +43,18 @@ const VueFire = defineNuxtModule({
      }
      const { resolve } = createResolver(import.meta.url);
      const runtimeDir = fileURLToPath(new URL("./runtime", import.meta.url));
@@ -41,7 +41,10 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60
      nuxt.options.appConfig.firebaseConfig = markRaw(options.config);
      nuxt.options.appConfig.vuefireOptions = markRaw(options);
      nuxt.options.build.transpile.push(runtimeDir);
-@@ -55,7 +53,7 @@ const VueFire = defineNuxtModule({
+     nuxt.options.build.transpile.push(templatesDir);
+     nuxt.options.build.transpile.push("vuefire");
+     nuxt.options.build.transpile.push("vuefire/server");
++    console.log("TypeOf: ", typeof options.admin?.serviceAccount);
      if (typeof options.admin?.serviceAccount === "string") {
        (_a = process.env).GOOGLE_APPLICATION_CREDENTIALS || (_a.GOOGLE_APPLICATION_CREDENTIALS = options.admin.serviceAccount);
      }
@@ -50,7 +53,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60
      if (options.auth) {
        if (nuxt.options.ssr && !hasServiceAccount) {
          log(
-@@ -73,6 +71,7 @@ const VueFire = defineNuxtModule({
+@@ -73,6 +72,7 @@ const VueFire = defineNuxtModule({
        addPlugin(resolve(runtimeDir, "auth/plugin.client"));
        addPlugin(resolve(runtimeDir, "auth/plugin.server"));
        addVueFireImports([
@@ -58,7 +61,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60
          { from: "vuefire", name: "useFirebaseAuth" },
          { from: "vuefire", name: "useCurrentUser" }
        ]);
-@@ -91,6 +90,7 @@ const VueFire = defineNuxtModule({
+@@ -91,6 +91,7 @@ const VueFire = defineNuxtModule({
          log(
            "warn",
            "You activated both SSR and app-check but you are not providing an admin config. If you render or prerender any page using app-check, you will get an error. In that case, provide an admin config to the nuxt-vuefire module."
@@ -66,7 +69,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60
          );
        }
      }
-@@ -121,21 +121,25 @@ const VueFire = defineNuxtModule({
+@@ -121,21 +122,25 @@ const VueFire = defineNuxtModule({
        }
      }
      addImports([
@@ -92,7 +95,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60
          "vite:extendConfig": async (config, { isServer }) => {
            var _a2;
            config.resolve ?? (config.resolve = {});
-@@ -147,11 +151,7 @@ const VueFire = defineNuxtModule({
+@@ -147,11 +152,7 @@ const VueFire = defineNuxtModule({
                addMissingAlias(aliases, "firebase/firestore", "index.mjs")
              );
              promises.push(
@@ -105,7 +108,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60
              );
            }
            promises.push(addMissingAlias(aliases, "firebase/app", "index.mjs"));
-@@ -160,12 +160,15 @@ const VueFire = defineNuxtModule({
+@@ -160,12 +161,15 @@ const VueFire = defineNuxtModule({
        });
      }
    },
@@ -121,7 +124,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60
          "firebase",
          "firebase/app",
          "@firebase/app",
-@@ -186,4 +189,4 @@ function addVueFireImports(imports) {
+@@ -186,4 +190,4 @@ function addVueFireImports(imports) {
    return addImports(imports);
  }
  

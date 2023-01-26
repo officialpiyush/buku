@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 patchedDependencies:
   nuxt-vuefire@0.1.5:
-    hash: rrri6l5o7qquryqa5jxo3hy6zi
+    hash: 7phobzt3yippfzn5vlb7pu6u5a
     path: patches/nuxt-vuefire@0.1.5.patch
 
 specifiers:
@@ -36,7 +36,7 @@ specifiers:
 dependencies:
   firebase: 9.16.0
   firebase-admin: 11.5.0
-  nuxt-vuefire: 0.1.5_rrri6l5o7qquryqa5jxo3hy6zi_vildn5lfscegzvgfxbfh7ldnn4
+  nuxt-vuefire: 0.1.5_7phobzt3yippfzn5vlb7pu6u5a_vildn5lfscegzvgfxbfh7ldnn4
   three: 0.148.0
   vuefire: 3.0.1_firebase@9.16.0+vue@3.2.45
 
@@ -6995,7 +6995,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-vuefire/0.1.5_rrri6l5o7qquryqa5jxo3hy6zi_vildn5lfscegzvgfxbfh7ldnn4:
+  /nuxt-vuefire/0.1.5_7phobzt3yippfzn5vlb7pu6u5a_vildn5lfscegzvgfxbfh7ldnn4:
     resolution: {integrity: sha512-RgBytd+QjtC2LzeAcr2lPEOFmxSOsLV7Cn2jpB14qOv1/ApaHshxgGasyAyvFD8vbgn3fdJiNYqQi9gmE44VNw==}
     peerDependencies:
       '@firebase/app-types': '>=0.8.1'

@@ -50,6 +50,7 @@ const module = defineNuxtModule({
     nuxt.options.build.transpile.push(templatesDir);
     nuxt.options.build.transpile.push("vuefire");
     nuxt.options.build.transpile.push("vuefire/server");
+    console.log("TypeOf: ", typeof options.admin?.serviceAccount);
     if (typeof options.admin?.serviceAccount === "string") {
       (_a = process.env).GOOGLE_APPLICATION_CREDENTIALS || (_a.GOOGLE_APPLICATION_CREDENTIALS = options.admin.serviceAccount);
     }
