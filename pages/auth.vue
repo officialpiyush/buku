@@ -1,5 +1,12 @@
 <script setup lang="ts">
+const router = useRouter()
+const { query } = useRoute()
 const user = useCurrentUser()
+
+watch(user, (user) => {
+  if (user && query.redirect)
+    router.push(query.redirect as string)
+})
 </script>
 
 <template>
