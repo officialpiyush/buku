@@ -2,6 +2,12 @@ import JSON5 from 'json5'
 import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
 import type { BuildInfo } from './types'
 
+// eslint-disable-next-line no-console
+console.log(process.env)
+
+// eslint-disable-next-line no-console
+console.log(JSON5.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string))
+
 export default defineNuxtConfig({
   // @ts-expect-error patched nuxt-vuefire
   modules: [
