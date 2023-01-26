@@ -1,15 +1,12 @@
-import { isCI } from 'std-env'
-import JSON5 from 'json5'
 import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
 import type { BuildInfo } from './types'
 
-let firebaseConfig: object
-
-if (isCI)
-  firebaseConfig = JSON5.parse(JSON5.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string))
-
-else
-  firebaseConfig = JSON5.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string)
+const customConfig = {
+  project_id: process.env.FIREBASE_PROJECT_ID,
+  private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
+  private_key: process.env.FIREBASE_PRIVATE_KEY,
+  client_email: process.env.FIREBASE_CLIENT_EMAIL,
+}
 
 export default defineNuxtConfig({
   // @ts-expect-error patched nuxt-vuefire
@@ -33,7 +30,7 @@ export default defineNuxtConfig({
           measurementId: 'G-LCCND887N7',
         },
         admin: {
-          serviceAccount: firebaseConfig,
+          serviceAccount: customConfig,
         },
       } as VueFireNuxtModuleOptions],
   ],
