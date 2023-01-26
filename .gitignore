@@ -7,3 +7,6 @@ dist
 .vercel
 functions/
 .env
+
+# patches
+!patches/nuxt-vuefire/dist

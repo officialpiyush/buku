@@ -1,0 +1,8 @@
+{
+  "name": "vuefire",
+  "configKey": "vuefire",
+  "compatibility": {
+    "nuxt": "^3.0.0"
+  },
+  "version": "0.1.5"
+}
