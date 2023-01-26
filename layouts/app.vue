@@ -5,7 +5,9 @@
         <Navbar />
       </nav>
       <main w-full flex-1 p-4 max-w-7xl mx-auto gap-4 grid="~ cols-1 lg:cols-12">
-        <div lg:col-span-2 />
+        <div lg:col-span-2>
+          <UserCard />
+        </div>
         <div lg:col-span-8>
           <slot />
         </div>
