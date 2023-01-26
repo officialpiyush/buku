@@ -1,4 +1,11 @@
 <script setup lang="ts">
+defineProps({
+  break: {
+    type: Boolean,
+    default: false,
+  },
+})
+
 const { commit, time } = useRuntimeConfig().public.buildInfo
 
 const commitUrl = computed(() => `https://github.com/officialpiyush/buku/commit/${commit}`)
@@ -8,10 +15,12 @@ const timeAgo = useTimeAgo(time)
 
 <template>
   <div flex flex-col="~ reverse" gap-1>
-    <div flex items-ceter justify-center gap-2 text="xs gray-400/90">
-      Built
-      <span>{{ timeAgo }}</span>
-      |
+    <div :class="{ 'flex-col items-end': $props.break }" flex items-ceter justify-center gap-2 text="xs gray-400/90">
+      <div class="flex gap-1">
+        <span>Built</span>
+        <span>{{ timeAgo }}</span>
+        <span v-if="!$props.break">|</span>
+      </div>
       <NuxtLink hover:text-green-700 underline="~ unset" flex gap="0.5" :to="commitUrl" target="_blank">
         <div h-4 w-4 i-ri-git-branch-line />
         {{ commit.slice(0, 8) }}

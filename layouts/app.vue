@@ -11,11 +11,10 @@
         <div lg:col-span-8>
           <slot />
         </div>
-        <div lg:col-span-2 />
+        <div lg:col-span-2 flex flex-col justify="end" items-center>
+          <Footer :break="true" />
+        </div>
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   </div>
 </template>
