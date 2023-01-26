@@ -15,7 +15,7 @@ const timeAgo = useTimeAgo(time)
 
 <template>
   <div flex flex-col="~ reverse" gap-1>
-    <div :class="{ 'flex-col items-end': $props.break }" flex items-ceter justify-center gap-2 text="xs gray-400/90">
+    <div :class="{ 'flex-col items-center lg:items-end': $props.break }" flex items-ceter justify-center gap-2 text="xs gray-400/90">
       <div class="flex gap-1">
         <span>Built</span>
         <span>{{ timeAgo }}</span>
