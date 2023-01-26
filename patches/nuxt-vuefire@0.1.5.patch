@@ -1,0 +1,277 @@
+diff --git a/dist/module.d.ts b/dist/module.d.ts
+index 683e3ed2c9c63d3d2b28181c3245a67201a39ace..e3040af1b914b4f37fdf96c6d19ff7cefd7fc6e2 100644
+--- a/dist/module.d.ts
++++ b/dist/module.d.ts
+@@ -54,7 +54,7 @@ interface VueFireNuxtModuleOptions {
+      */
+     auth?: boolean;
+ }
+-declare const VueFire: NuxtModule<VueFireNuxtModuleOptions>;
++declare const _default: NuxtModule<VueFireNuxtModuleOptions>;
+ 
+ declare module '@nuxt/schema' {
+     interface AppConfig {
+@@ -100,4 +100,4 @@ declare module '@vue/runtime-core' {
+     }
+ }
+ 
+-export { NuxtVueFireAppCheckOptions, NuxtVueFireAppCheckOptionsReCaptchaEnterprise, NuxtVueFireAppCheckOptionsReCaptchaV3, VueFireNuxtModuleOptions, VueFire as default };
++export { NuxtVueFireAppCheckOptions, NuxtVueFireAppCheckOptionsReCaptchaEnterprise, NuxtVueFireAppCheckOptionsReCaptchaV3, VueFireNuxtModuleOptions, _default as default };
+diff --git a/dist/module.mjs b/dist/module.mjs
+index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60a42d6b7c 100644
+--- a/dist/module.mjs
++++ b/dist/module.mjs
+@@ -23,7 +23,7 @@ function isLogType(logType) {
+   return logType === "debug" || logType === "info" || logType === "warn" || logType === "error" || logType === "trace";
+ }
+ 
+-const VueFire = defineNuxtModule({
++const module = defineNuxtModule({
+   meta: {
+     name: "vuefire",
+     configKey: "vuefire",
+@@ -43,9 +43,7 @@ const VueFire = defineNuxtModule({
+     }
+     const { resolve } = createResolver(import.meta.url);
+     const runtimeDir = fileURLToPath(new URL("./runtime", import.meta.url));
+-    const templatesDir = fileURLToPath(
+-      new URL("../templates", import.meta.url)
+-    );
++    const templatesDir = fileURLToPath(new URL("../templates", import.meta.url));
+     nuxt.options.appConfig.firebaseConfig = markRaw(options.config);
+     nuxt.options.appConfig.vuefireOptions = markRaw(options);
+     nuxt.options.build.transpile.push(runtimeDir);
+@@ -55,7 +53,7 @@ const VueFire = defineNuxtModule({
+     if (typeof options.admin?.serviceAccount === "string") {
+       (_a = process.env).GOOGLE_APPLICATION_CREDENTIALS || (_a.GOOGLE_APPLICATION_CREDENTIALS = options.admin.serviceAccount);
+     }
+-    const hasServiceAccount = typeof process.env.GOOGLE_APPLICATION_CREDENTIALS === "string" && process.env.GOOGLE_APPLICATION_CREDENTIALS.length > 0;
++    const hasServiceAccount = typeof process.env.GOOGLE_APPLICATION_CREDENTIALS === "string" && process.env.GOOGLE_APPLICATION_CREDENTIALS.length > 0 || options.admin && options.admin.serviceAccount != null && typeof options.admin.serviceAccount === "object";
+     if (options.auth) {
+       if (nuxt.options.ssr && !hasServiceAccount) {
+         log(
+@@ -73,6 +71,7 @@ const VueFire = defineNuxtModule({
+       addPlugin(resolve(runtimeDir, "auth/plugin.client"));
+       addPlugin(resolve(runtimeDir, "auth/plugin.server"));
+       addVueFireImports([
++        // auth
+         { from: "vuefire", name: "useFirebaseAuth" },
+         { from: "vuefire", name: "useCurrentUser" }
+       ]);
+@@ -91,6 +90,7 @@ const VueFire = defineNuxtModule({
+         log(
+           "warn",
+           "You activated both SSR and app-check but you are not providing an admin config. If you render or prerender any page using app-check, you will get an error. In that case, provide an admin config to the nuxt-vuefire module."
++          // TODO: link about how to provide admin credentials
+         );
+       }
+     }
+@@ -121,21 +121,25 @@ const VueFire = defineNuxtModule({
+       }
+     }
+     addImports([
++      // app
+       {
+         from: resolve(runtimeDir, "app/composables"),
+         name: "useFirebaseApp"
+       }
+     ]);
+     addVueFireImports([
++      // firestore
+       { from: "vuefire", name: "useFirestore" },
+       { from: "vuefire", name: "useDocument" },
+       { from: "vuefire", name: "useCollection" },
++      // database
+       { from: "vuefire", name: "useDatabase" },
+       { from: "vuefire", name: "useDatabaseList" },
+       { from: "vuefire", name: "useDatabaseObject" }
+     ]);
+     if (nuxt.options.ssr) {
+       nuxt.addHooks({
++        // Resolve the correct firebase/firestore path on server only since vite is resolving the wrong one in dev
+         "vite:extendConfig": async (config, { isServer }) => {
+           var _a2;
+           config.resolve ?? (config.resolve = {});
+@@ -147,11 +151,7 @@ const VueFire = defineNuxtModule({
+               addMissingAlias(aliases, "firebase/firestore", "index.mjs")
+             );
+             promises.push(
+-              addMissingAlias(
+-                aliases,
+-                "@firebase/firestore",
+-                "index.node.mjs"
+-              )
++              addMissingAlias(aliases, "@firebase/firestore", "index.node.mjs")
+             );
+           }
+           promises.push(addMissingAlias(aliases, "firebase/app", "index.mjs"));
+@@ -160,12 +160,15 @@ const VueFire = defineNuxtModule({
+       });
+     }
+   },
++  // workaround for vite
+   hooks: {
+     "vite:extendConfig": (viteInlineConfig, env) => {
+       var _a, _b;
+       viteInlineConfig.resolve ?? (viteInlineConfig.resolve = {});
+       (_a = viteInlineConfig.resolve).dedupe ?? (_a.dedupe = []);
+       const deps = [
++        // 'vuefire',
++        // 'nuxt-vuefire',
+         "firebase",
+         "firebase/app",
+         "@firebase/app",
+@@ -186,4 +189,4 @@ function addVueFireImports(imports) {
+   return addImports(imports);
+ }
+ 
+-export { VueFire as default };
++export { module as default };
+diff --git a/dist/runtime/admin/plugin-auth-user.server.mjs b/dist/runtime/admin/plugin-auth-user.server.mjs
+index 59751b65b966f9df06c386a7c8cf3012da4f5c6a..74c1875b7717f610f6963c1e16573e38370b1ccc 100644
+--- a/dist/runtime/admin/plugin-auth-user.server.mjs
++++ b/dist/runtime/admin/plugin-auth-user.server.mjs
+@@ -23,7 +23,10 @@ export default defineNuxtPlugin(async (nuxtApp) => {
+     }
+   }
+   nuxtApp.payload.vuefireUser = user?.toJSON();
+-  nuxtApp[UserSymbol] = createServerUser(user);
++  nuxtApp[
++    // we cannot use symbol to index
++    UserSymbol
++  ] = createServerUser(user);
+ });
+ function isFirebaseError(err) {
+   return err != null && "code" in err;
+diff --git a/dist/runtime/admin/plugin.server.mjs b/dist/runtime/admin/plugin.server.mjs
+index 9c690cbf7ca21234177be93eedf2854c02e333aa..bfed16baffeed04d9e85000b244886d9ecfd28d8 100644
+--- a/dist/runtime/admin/plugin.server.mjs
++++ b/dist/runtime/admin/plugin.server.mjs
+@@ -15,10 +15,13 @@ export default defineNuxtPlugin((nuxtApp) => {
+   }
+   if (!getApps().length) {
+     const {
++      // these can be set by the user on other platforms
+       FIREBASE_PROJECT_ID,
+       FIREBASE_CLIENT_EMAIL,
+       FIREBASE_PRIVATE_KEY,
++      // set on firebase cloud functions
+       FIREBASE_CONFIG,
++      // in cloud functions, we can auto initialize
+       FUNCTION_NAME
+     } = process.env;
+     if (FIREBASE_CONFIG || FUNCTION_NAME) {
+@@ -31,6 +34,7 @@ export default defineNuxtPlugin((nuxtApp) => {
+         credential = cert({
+           projectId: FIREBASE_PROJECT_ID,
+           clientEmail: FIREBASE_CLIENT_EMAIL,
++          // replace `\` and `n` character pairs w/ single `\n` character
+           privateKey: FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n")
+         });
+       } else if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+@@ -48,6 +52,7 @@ You can also set the FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY and FIREBASE_PR
+         throw new Error("admin-app/missing-credentials");
+       }
+       initializeApp({
++        // TODO: is this really going to be used?
+         ...firebaseAdmin?.options,
+         credential
+       });
+diff --git a/dist/runtime/app/plugin.server.mjs b/dist/runtime/app/plugin.server.mjs
+index 046b4c2f1337eeacc18127005faa559bc3afe786..c7c766ce5007bffecbc82ea6c00435ef7feb1400 100644
+--- a/dist/runtime/app/plugin.server.mjs
++++ b/dist/runtime/app/plugin.server.mjs
+@@ -15,7 +15,10 @@ const appCache = new LRU({
+ });
+ export default defineNuxtPlugin((nuxtApp) => {
+   const appConfig = useAppConfig();
+-  const user = nuxtApp[UserSymbol];
++  const user = nuxtApp[
++    // we cannot use a symbol to index
++    UserSymbol
++  ];
+   const uid = user?.uid;
+   let firebaseApp;
+   if (uid) {
+diff --git a/dist/runtime/app-check/plugin.client.mjs b/dist/runtime/app-check/plugin.client.mjs
+index 89e69b47ff21d94dd5617087031bb5aba2c0f3e7..8594b3085aefc656169961881863e9728641cc10 100644
+--- a/dist/runtime/app-check/plugin.client.mjs
++++ b/dist/runtime/app-check/plugin.client.mjs
+@@ -18,7 +18,9 @@ export default defineNuxtPlugin((nuxtApp) => {
+     provider = new CustomProvider({
+       getToken: () => Promise.reject(
+         process.env.NODE_ENV !== "production" ? new Error(
+-          `[nuxt-vuefire]: Unknown Provider "${options.provider}".`
++          `[nuxt-vuefire]: Unknown Provider "${// @ts-expect-error: options.provider is never here
++          options.provider}".`
++          // eslint-disable-next-line indent
+         ) : new Error("app-check/invalid-provider")
+       )
+     });
+diff --git a/dist/runtime/auth/composables.d.ts b/dist/runtime/auth/composables.d.ts
+index 581ffb0492d8aa1e1bf22480809ac2c0725699c8..2c7f245b592555cb0efb8e89f4234f538c2b4fde 100644
+--- a/dist/runtime/auth/composables.d.ts
++++ b/dist/runtime/auth/composables.d.ts
+@@ -1,4 +1,4 @@
+ /**
+  * @inheritDoc {getCurrentUser}
+  */
+-export declare const getCurrentUser: (name?: string) => Promise<import("../../../../../dist/shared-565bf8c7").c<import("firebase/auth").User>>;
++export declare const getCurrentUser: (name?: string) => any;
+diff --git a/dist/runtime/auth/composables.mjs b/dist/runtime/auth/composables.mjs
+index e3dd5e0722526275468c61e4134f6bfaca3a936b..dd507c89a6fbd3e3d83e679b14b93ed38f27bdd9 100644
+--- a/dist/runtime/auth/composables.mjs
++++ b/dist/runtime/auth/composables.mjs
+@@ -1,3 +1,6 @@
+ import { getCurrentUser as _getCurrentUser } from "vuefire";
+ import { useFirebaseApp } from "../app/composables.mjs";
+-export const getCurrentUser = (name) => _getCurrentUser(name ?? useFirebaseApp().name);
++export const getCurrentUser = (name) => (
++  // This makes the `getCurrentUser()` function work by default in more places when using the Nuxt module
++  _getCurrentUser(name ?? useFirebaseApp().name)
++);
+diff --git a/dist/runtime/auth/plugin-mint-cookie.client.mjs b/dist/runtime/auth/plugin-mint-cookie.client.mjs
+index 9607d9450f9884257ac87871f225408d5f75ce88..1d22819155ba9e6e3027a138b5c9e5d04588bcec 100644
+--- a/dist/runtime/auth/plugin-mint-cookie.client.mjs
++++ b/dist/runtime/auth/plugin-mint-cookie.client.mjs
+@@ -9,6 +9,7 @@ export default defineNuxtPlugin((nuxtApp) => {
+   const auth = getAuth(firebaseApp);
+   beforeAuthStateChanged(
+     auth,
++    // if this fails, we rollback the auth state
+     mintCookie,
+     () => {
+       mintCookie(auth.currentUser);
+@@ -17,11 +18,16 @@ export default defineNuxtPlugin((nuxtApp) => {
+   onIdTokenChanged(auth, mintCookie);
+ });
+ async function mintCookie(user) {
+-  const jwtToken = await user?.getIdToken(true);
++  const jwtToken = await user?.getIdToken(
++    /* forceRefresh */
++    true
++  );
+   await $fetch(
++    // '/api/__session-server',
+     "/api/__session",
+     {
+       method: "POST",
++      // if the token is undefined, the server will delete the cookie
+       body: { token: jwtToken }
+     }
+   );
+diff --git a/dist/runtime/auth/plugin.server.mjs b/dist/runtime/auth/plugin.server.mjs
+index aaa4cfb545b0d25fe75cf1f0773b3ae719da0496..67ab4583944a7e9dd3ebaeb9897e2842394c26af 100644
+--- a/dist/runtime/auth/plugin.server.mjs
++++ b/dist/runtime/auth/plugin.server.mjs
+@@ -3,6 +3,9 @@ import { UserSymbol } from "../constants.mjs";
+ import { defineNuxtPlugin } from "#app";
+ export default defineNuxtPlugin((nuxtApp) => {
+   const firebaseApp = nuxtApp.$firebaseApp;
+-  const user = nuxtApp[UserSymbol];
++  const user = nuxtApp[
++    // we cannot use symbol to index
++    UserSymbol
++  ];
+   VueFireAuthServer(firebaseApp, nuxtApp.vueApp, user);
+ });

@@ -1,5 +1,10 @@
 lockfileVersion: 5.4
 
+patchedDependencies:
+  nuxt-vuefire@0.1.5:
+    hash: la4336ltao62qvx72o5hrq3ymm
+    path: patches/nuxt-vuefire@0.1.5.patch
+
 specifiers:
   '@antfu/eslint-config': ^0.34.1
   '@commitlint/cli': ^17.4.2
@@ -31,7 +36,7 @@ specifiers:
 dependencies:
   firebase: 9.16.0
   firebase-admin: 11.5.0
-  nuxt-vuefire: 0.1.5_vildn5lfscegzvgfxbfh7ldnn4
+  nuxt-vuefire: 0.1.5_la4336ltao62qvx72o5hrq3ymm_vildn5lfscegzvgfxbfh7ldnn4
   three: 0.148.0
   vuefire: 3.0.1_firebase@9.16.0+vue@3.2.45
 
@@ -2270,13 +2275,13 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.10
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
     dev: true
 
   /@types/eslint/8.4.10:
     resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
     dev: true
 
@@ -6990,7 +6995,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt-vuefire/0.1.5_vildn5lfscegzvgfxbfh7ldnn4:
+  /nuxt-vuefire/0.1.5_la4336ltao62qvx72o5hrq3ymm_vildn5lfscegzvgfxbfh7ldnn4:
     resolution: {integrity: sha512-RgBytd+QjtC2LzeAcr2lPEOFmxSOsLV7Cn2jpB14qOv1/ApaHshxgGasyAyvFD8vbgn3fdJiNYqQi9gmE44VNw==}
     peerDependencies:
       '@firebase/app-types': '>=0.8.1'
@@ -7016,6 +7021,7 @@ packages:
       - rollup
       - supports-color
     dev: false
+    patched: true
 
   /nuxt/3.1.1_tjxknrp5okovqtrxh5aihvdm5y:
     resolution: {integrity: sha512-GVdmV88lR01OX0slxTPyTzwQkge7fxNREkx2QW0Lo66fb6aHcJlRXzFMBCOTjas+Ncng6AalIyIiPREEteGKSg==}

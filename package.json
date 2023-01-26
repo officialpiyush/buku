@@ -43,5 +43,10 @@
   },
   "volta": {
     "node": "16.19.0"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "nuxt-vuefire@0.1.5": "patches/nuxt-vuefire@0.1.5.patch"
+    }
   }
 }
