@@ -1,10 +1,5 @@
 lockfileVersion: 5.4
 
-patchedDependencies:
-  unenv@1.0.1:
-    hash: 4qexdxybtx7kqdjqmz3c37qlay
-    path: patches/unenv@1.0.1.patch
-
 specifiers:
   '@antfu/eslint-config': ^0.34.1
   '@commitlint/cli': ^17.4.2
@@ -30,7 +25,7 @@ specifiers:
   std-env: ^3.3.1
   three: ^0.148.0
   typescript: ^4.9.4
-  unenv: ^1.0.1
+  unenv: ^1.0.2
   vuefire: ^3.0.1
 
 dependencies:
@@ -61,7 +56,7 @@ devDependencies:
   simple-git: 3.16.0
   std-env: 3.3.1
   typescript: 4.9.4
-  unenv: 1.0.1_4qexdxybtx7kqdjqmz3c37qlay
+  unenv: 1.0.2
 
 packages:
 
@@ -1552,8 +1547,8 @@ packages:
     dev: false
     optional: true
 
-  /@google-cloud/storage/6.9.0:
-    resolution: {integrity: sha512-0mn9DUe3dtyTWLsWLplQP3gzPolJ5kD4PwHuzeD3ye0SAQ+oFfDbT8d+vNZxqyvddL2c6uNP72TKETN2PQxDKg==}
+  /@google-cloud/storage/6.9.1:
+    resolution: {integrity: sha512-mhbRfrDgV7qM8HGn12p3dpT87Azt94s9YRzr8qR+o/ptksAkCApspzlNS2mUEeoXUMmnpwcdF2GGNpd4+6NuVw==}
     engines: {node: '>=12'}
     requiresBuild: true
     dependencies:
@@ -2226,13 +2221,13 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.10
-      '@types/estree': 1.0.0
+      '@types/estree': 0.0.51
     dev: true
 
   /@types/eslint/8.4.10:
     resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}
     dependencies:
-      '@types/estree': 1.0.0
+      '@types/estree': 0.0.51
       '@types/json-schema': 7.0.11
     dev: true
 
@@ -4983,7 +4978,7 @@ packages:
       uuid: 9.0.0
     optionalDependencies:
       '@google-cloud/firestore': 6.4.2
-      '@google-cloud/storage': 6.9.0
+      '@google-cloud/storage': 6.9.1
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -6797,7 +6792,7 @@ packages:
       source-map-support: 0.5.21
       std-env: 3.3.1
       ufo: 1.0.1
-      unenv: 1.0.1_4qexdxybtx7kqdjqmz3c37qlay
+      unenv: 1.0.2
       unimport: 1.3.0_rollup@3.10.1
       unstorage: 1.0.1
     transitivePeerDependencies:
@@ -7010,7 +7005,7 @@ packages:
       ufo: 1.0.1
       ultrahtml: 1.2.0
       unctx: 2.1.1
-      unenv: 1.0.1_4qexdxybtx7kqdjqmz3c37qlay
+      unenv: 1.0.2
       unhead: 1.0.18
       unimport: 2.0.1
       unplugin: 1.0.1
@@ -8830,15 +8825,14 @@ packages:
       busboy: 1.6.0
     dev: true
 
-  /unenv/1.0.1_4qexdxybtx7kqdjqmz3c37qlay:
-    resolution: {integrity: sha512-08MoQ5+Edg9ckEP5y6vT8R6sOgCsNPxwPA1mKIOyergTtPOOuSyyJnbmF8CdnUplO2TUqSm0s1IysCkylxmndw==}
+  /unenv/1.0.2:
+    resolution: {integrity: sha512-senf7HmOHW3TuVCdhnrJcgVWabKnaU38oTRpppwWF0L6dJyfedY4MCiJeuwtrziqURZHuI2xxUoM90VLwG+e2Q==}
     dependencies:
       defu: 6.1.2
       mime: 3.0.0
       node-fetch-native: 1.0.1
       pathe: 1.1.0
     dev: true
-    patched: true
 
   /unhead/1.0.18:
     resolution: {integrity: sha512-lHuOvFcj7ijFM6ceRuPq1+0sOAap8fueJxf+SkuWtfm68oxuLP8ct3C3oRyMT/hyWjzfWgoaECmjmw5x2cHnpg==}
