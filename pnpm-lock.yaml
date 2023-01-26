@@ -17,11 +17,11 @@ specifiers:
   '@types/three': ^0.148.1
   '@unocss/nuxt': ^0.49.0
   '@vueuse/nuxt': ^9.11.1
-  destr: ^1.2.2
   eslint: ^8.32.0
   firebase: ^9.16.0
   firebase-admin: ^11.5.0
   husky: ^8.0.3
+  json5: ^2.2.3
   lint-staged: ^13.1.0
   nuxt: ^3.1.1
   nuxt-vuefire: ^0.1.5
@@ -52,9 +52,9 @@ devDependencies:
   '@types/three': 0.148.1
   '@unocss/nuxt': 0.49.0_vite@4.0.4+webpack@5.75.0
   '@vueuse/nuxt': 9.11.1_nuxt@3.1.1+vue@3.2.45
-  destr: 1.2.2
   eslint: 8.32.0
   husky: 8.0.3
+  json5: 2.2.3
   lint-staged: 13.1.0
   nuxt: 3.1.1_tjxknrp5okovqtrxh5aihvdm5y
   pinia: 2.0.29_prq2uz4lho2pwp6irk4cfkrxwu

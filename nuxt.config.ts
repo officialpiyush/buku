@@ -1,9 +1,6 @@
-import destr from 'destr'
+import JSON5 from 'json5'
 import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
 import type { BuildInfo } from './types'
-
-// eslint-disable-next-line no-console
-console.log(destr(process.env.FIREBASE_SERVICE_ACCOUNT))
 
 export default defineNuxtConfig({
   // @ts-expect-error patched nuxt-vuefire
@@ -27,7 +24,7 @@ export default defineNuxtConfig({
           measurementId: 'G-LCCND887N7',
         },
         admin: {
-          serviceAccount: destr(process.env.FIREBASE_SERVICE_ACCOUNT),
+          serviceAccount: JSON5.parse(process.env.FIREBASE_SERVICE_ACCOUNT as string),
         },
       } as VueFireNuxtModuleOptions],
   ],
