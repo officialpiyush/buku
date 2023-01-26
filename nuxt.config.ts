@@ -1,24 +1,11 @@
 import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
-import { isCI } from 'std-env'
 import type { BuildInfo } from './types'
 
-let customConfig
-
-if (isCI) {
-  customConfig = {
-    project_id: JSON.parse(process.env.FIREBASE_PROJECT_ID as string),
-    private_key_id: JSON.parse(process.env.FIREBASE_PRIVATE_KEY_ID as string),
-    private_key: JSON.parse(process.env.FIREBASE_PRIVATE_KEY as string),
-    client_email: JSON.parse(process.env.FIREBASE_CLIENT_EMAIL as string),
-  }
-}
-else {
-  customConfig = {
-    project_id: process.env.FIREBASE_PROJECT_ID,
-    private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
-    private_key: process.env.FIREBASE_PRIVATE_KEY,
-    client_email: process.env.FIREBASE_CLIENT_EMAIL,
-  }
+const customConfig = {
+  project_id: process.env.FIREBASE_PROJECT_ID,
+  private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
+  private_key: process.env.FIREBASE_PRIVATE_KEY,
+  client_email: process.env.FIREBASE_CLIENT_EMAIL,
 }
 
 export default defineNuxtConfig({
