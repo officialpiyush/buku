@@ -37,6 +37,7 @@ specifiers:
 dependencies:
   firebase: 9.16.0
   firebase-admin: 11.5.0
+  ms: 2.1.3
   nuxt-vuefire: 0.1.5_7phobzt3yippfzn5vlb7pu6u5a_vildn5lfscegzvgfxbfh7ldnn4
   three: 0.148.0
   vuefire: 3.0.1_firebase@9.16.0+vue@3.2.45
@@ -57,7 +58,6 @@ devDependencies:
   husky: 8.0.3
   json5: 2.2.3
   lint-staged: 13.1.0
-  ms: 2.1.3
   nuxt: 3.1.1_tjxknrp5okovqtrxh5aihvdm5y
   pinia: 2.0.29_prq2uz4lho2pwp6irk4cfkrxwu
   simple-git: 3.16.0
