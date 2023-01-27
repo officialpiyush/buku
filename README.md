@@ -22,7 +22,7 @@ Recently, Nuxt 3 was released, and like always, I wanted to try it. I was thinki
 # Status of the Project
 I had initially planned to complete the project in two days, but it just took me two days to figure out hosting (was trying to host nuxt 3 on edge, but ended up using serverless after two days of fails :) )
 <br>
-This project helped me to create my first PRs on the year into the VueJS ecosystem, but IMO, Nuxt 3 is quite new and the ecosystem is yet to develop, Since it's almost a week now since I started the project, I am putting this project on hold to work on another project, and I would be back when some the underlying libraries the project uses, mature.
+This project helped me to create my first PRs of the year into the VueJS ecosystem, but IMO, Nuxt 3 is quite new and the ecosystem is yet to develop, Since it's almost a week now since I started the project, I am putting this project on hold to work on another project. I would be back when some the underlying libraries the project uses, mature.
 
 
 # Contributors
