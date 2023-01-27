@@ -1,11 +1,6 @@
 import type { VueFireNuxtModuleOptions } from 'nuxt-vuefire'
 import type { BuildInfo } from './types'
 
-// @ts-expect-error didn't declare typings, testing
-globalThis.ms = require(
-  'ms',
-)
-
 const customConfig = {
   type: 'service_account',
   project_id: process.env.FIREBASE_PROJECT_ID,
