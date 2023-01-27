@@ -9,7 +9,7 @@ const user = useCurrentUser()
       <div max-w-7xl mx-auto w-full>
         There wont be active development on the project, it has been paused until the underlying libraries mature
         -
-        <NuxtLink text-red-400 underline underline-wavy to="https://github.com/officialpiyush/buku#readme" target="_blank">
+        <NuxtLink text-red-400 underline underline-wavy hover:underline-double to="https://github.com/officialpiyush/buku#readme" target="_blank">
           README
         </NuxtLink>
       </div>
