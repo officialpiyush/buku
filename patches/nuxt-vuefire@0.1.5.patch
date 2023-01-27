@@ -18,7 +18,7 @@ index 683e3ed2c9c63d3d2b28181c3245a67201a39ace..e3040af1b914b4f37fdf96c6d19ff7ce
 -export { NuxtVueFireAppCheckOptions, NuxtVueFireAppCheckOptionsReCaptchaEnterprise, NuxtVueFireAppCheckOptionsReCaptchaV3, VueFireNuxtModuleOptions, VueFire as default };
 +export { NuxtVueFireAppCheckOptions, NuxtVueFireAppCheckOptionsReCaptchaEnterprise, NuxtVueFireAppCheckOptionsReCaptchaV3, VueFireNuxtModuleOptions, _default as default };
 diff --git a/dist/module.mjs b/dist/module.mjs
-index bc7e2a21aa4ec30901d896e728b56d95a69812ed..c264bb3ed6c8a22f1e362f553b4bd1a809117833 100644
+index bc7e2a21aa4ec30901d896e728b56d95a69812ed..d82d249fd691bb948ab5d13cc1d58a60a42d6b7c 100644
 --- a/dist/module.mjs
 +++ b/dist/module.mjs
 @@ -23,7 +23,7 @@ function isLogType(logType) {
@@ -30,7 +30,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..c264bb3ed6c8a22f1e362f553b4bd1a8
    meta: {
      name: "vuefire",
      configKey: "vuefire",
-@@ -43,19 +43,18 @@ const VueFire = defineNuxtModule({
+@@ -43,9 +43,7 @@ const VueFire = defineNuxtModule({
      }
      const { resolve } = createResolver(import.meta.url);
      const runtimeDir = fileURLToPath(new URL("./runtime", import.meta.url));
@@ -41,10 +41,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..c264bb3ed6c8a22f1e362f553b4bd1a8
      nuxt.options.appConfig.firebaseConfig = markRaw(options.config);
      nuxt.options.appConfig.vuefireOptions = markRaw(options);
      nuxt.options.build.transpile.push(runtimeDir);
-     nuxt.options.build.transpile.push(templatesDir);
-     nuxt.options.build.transpile.push("vuefire");
-     nuxt.options.build.transpile.push("vuefire/server");
-+    console.log("TypeOf: ", typeof options.admin?.serviceAccount);
+@@ -55,7 +53,7 @@ const VueFire = defineNuxtModule({
      if (typeof options.admin?.serviceAccount === "string") {
        (_a = process.env).GOOGLE_APPLICATION_CREDENTIALS || (_a.GOOGLE_APPLICATION_CREDENTIALS = options.admin.serviceAccount);
      }
@@ -53,7 +50,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..c264bb3ed6c8a22f1e362f553b4bd1a8
      if (options.auth) {
        if (nuxt.options.ssr && !hasServiceAccount) {
          log(
-@@ -73,6 +72,7 @@ const VueFire = defineNuxtModule({
+@@ -73,6 +71,7 @@ const VueFire = defineNuxtModule({
        addPlugin(resolve(runtimeDir, "auth/plugin.client"));
        addPlugin(resolve(runtimeDir, "auth/plugin.server"));
        addVueFireImports([
@@ -61,7 +58,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..c264bb3ed6c8a22f1e362f553b4bd1a8
          { from: "vuefire", name: "useFirebaseAuth" },
          { from: "vuefire", name: "useCurrentUser" }
        ]);
-@@ -91,6 +91,7 @@ const VueFire = defineNuxtModule({
+@@ -91,6 +90,7 @@ const VueFire = defineNuxtModule({
          log(
            "warn",
            "You activated both SSR and app-check but you are not providing an admin config. If you render or prerender any page using app-check, you will get an error. In that case, provide an admin config to the nuxt-vuefire module."
@@ -69,7 +66,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..c264bb3ed6c8a22f1e362f553b4bd1a8
          );
        }
      }
-@@ -121,21 +122,25 @@ const VueFire = defineNuxtModule({
+@@ -121,21 +121,25 @@ const VueFire = defineNuxtModule({
        }
      }
      addImports([
@@ -95,7 +92,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..c264bb3ed6c8a22f1e362f553b4bd1a8
          "vite:extendConfig": async (config, { isServer }) => {
            var _a2;
            config.resolve ?? (config.resolve = {});
-@@ -147,11 +152,7 @@ const VueFire = defineNuxtModule({
+@@ -147,11 +151,7 @@ const VueFire = defineNuxtModule({
                addMissingAlias(aliases, "firebase/firestore", "index.mjs")
              );
              promises.push(
@@ -108,7 +105,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..c264bb3ed6c8a22f1e362f553b4bd1a8
              );
            }
            promises.push(addMissingAlias(aliases, "firebase/app", "index.mjs"));
-@@ -160,12 +161,15 @@ const VueFire = defineNuxtModule({
+@@ -160,12 +160,15 @@ const VueFire = defineNuxtModule({
        });
      }
    },
@@ -124,7 +121,7 @@ index bc7e2a21aa4ec30901d896e728b56d95a69812ed..c264bb3ed6c8a22f1e362f553b4bd1a8
          "firebase",
          "firebase/app",
          "@firebase/app",
-@@ -186,4 +190,4 @@ function addVueFireImports(imports) {
+@@ -186,4 +189,4 @@ function addVueFireImports(imports) {
    return addImports(imports);
  }
  
@@ -147,7 +144,7 @@ index 59751b65b966f9df06c386a7c8cf3012da4f5c6a..74c1875b7717f610f6963c1e16573e38
  function isFirebaseError(err) {
    return err != null && "code" in err;
 diff --git a/dist/runtime/admin/plugin.server.mjs b/dist/runtime/admin/plugin.server.mjs
-index 9c690cbf7ca21234177be93eedf2854c02e333aa..71e0b81b21403761bdab9f3620960c23fd1cc4c0 100644
+index 9c690cbf7ca21234177be93eedf2854c02e333aa..bfed16baffeed04d9e85000b244886d9ecfd28d8 100644
 --- a/dist/runtime/admin/plugin.server.mjs
 +++ b/dist/runtime/admin/plugin.server.mjs
 @@ -15,10 +15,13 @@ export default defineNuxtPlugin((nuxtApp) => {
@@ -164,7 +161,7 @@ index 9c690cbf7ca21234177be93eedf2854c02e333aa..71e0b81b21403761bdab9f3620960c23
        FUNCTION_NAME
      } = process.env;
      if (FIREBASE_CONFIG || FUNCTION_NAME) {
-@@ -31,12 +34,14 @@ export default defineNuxtPlugin((nuxtApp) => {
+@@ -31,6 +34,7 @@ export default defineNuxtPlugin((nuxtApp) => {
          credential = cert({
            projectId: FIREBASE_PROJECT_ID,
            clientEmail: FIREBASE_CLIENT_EMAIL,
@@ -172,14 +169,7 @@ index 9c690cbf7ca21234177be93eedf2854c02e333aa..71e0b81b21403761bdab9f3620960c23
            privateKey: FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n")
          });
        } else if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-         log("debug", "using GOOGLE_APPLICATION_CREDENTIALS env variable");
-         credential = applicationDefault();
-       } else if (typeof firebaseAdmin?.serviceAccount === "object" && firebaseAdmin.serviceAccount != null) {
-+        console.log(firebaseAdmin?.serviceAccount);
-         credential = cert(firebaseAdmin.serviceAccount);
-       } else {
-         log(
-@@ -48,6 +53,7 @@ You can also set the FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY and FIREBASE_PR
+@@ -48,6 +52,7 @@ You can also set the FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY and FIREBASE_PR
          throw new Error("admin-app/missing-credentials");
        }
        initializeApp({

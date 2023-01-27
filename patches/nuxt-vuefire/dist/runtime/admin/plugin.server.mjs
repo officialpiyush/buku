@@ -41,7 +41,6 @@ export default defineNuxtPlugin((nuxtApp) => {
         log("debug", "using GOOGLE_APPLICATION_CREDENTIALS env variable");
         credential = applicationDefault();
       } else if (typeof firebaseAdmin?.serviceAccount === "object" && firebaseAdmin.serviceAccount != null) {
-        console.log(firebaseAdmin?.serviceAccount);
         credential = cert(firebaseAdmin.serviceAccount);
       } else {
         log(
