@@ -23,7 +23,7 @@ defineProps<{
       </div>
     </div>
 
-    <div grid="~ cols-2" gap-4>
+    <div px-4 grid="~ md:cols-1 lg:cols-2" gap-4>
       <BookOpenButton />
       <BookLibraryButton />
     </div>
