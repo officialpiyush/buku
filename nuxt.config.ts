@@ -15,7 +15,6 @@ const customConfig = {
 }
 
 export default defineNuxtConfig({
-  // @ts-expect-error patched nuxt-vuefire
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
@@ -38,7 +37,8 @@ export default defineNuxtConfig({
         admin: {
           serviceAccount: customConfig,
         },
-      } as VueFireNuxtModuleOptions],
+      } as VueFireNuxtModuleOptions,
+    ],
   ],
   runtimeConfig: {
     public: {
