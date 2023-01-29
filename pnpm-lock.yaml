@@ -25,6 +25,7 @@ specifiers:
   lint-staged: ^13.1.0
   nitropack: ^2.1.0
   nuxt: ^3.1.1
+  nuxt-headlessui: ^1.1.1
   nuxt-vuefire: ^0.1.5
   pinia: ^2.0.29
   simple-git: ^3.16.0
@@ -59,6 +60,7 @@ devDependencies:
   lint-staged: 13.1.0
   nitropack: 2.1.0
   nuxt: 3.1.1_tjxknrp5okovqtrxh5aihvdm5y
+  nuxt-headlessui: 1.1.1_vue@3.2.45
   pinia: 2.0.29_prq2uz4lho2pwp6irk4cfkrxwu
   simple-git: 3.16.0
   std-env: 3.3.1
@@ -1616,6 +1618,15 @@ packages:
       protobufjs: 7.2.0
       yargs: 16.2.0
     dev: false
+
+  /@headlessui/vue/1.7.8_vue@3.2.45:
+    resolution: {integrity: sha512-J83kAz3drFjndXz/AOoxmgzVo/MtSNFFn/K9qhSSJ8EGhmRfwdJLhZ0W4NSrw6A10JxhXDlkjoV0UxOiBLr5iQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.2.45
+    dev: true
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -6955,6 +6966,18 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /nuxt-headlessui/1.1.1_vue@3.2.45:
+    resolution: {integrity: sha512-sf8qZQvGDaI+uNnKuynFGY+VXScDNEj3W0LMjv2XH4jO4ksQzbliCB9Hl5cdd/VIFPVmnZm+dnneURSI4/1fXw==}
+    dependencies:
+      '@headlessui/vue': 1.7.8_vue@3.2.45
+      '@nuxt/kit': 3.1.1
+      pathe: 1.1.0
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+      - vue
     dev: true
 
   /nuxt-vuefire/0.1.5_la4336ltao62qvx72o5hrq3ymm_vildn5lfscegzvgfxbfh7ldnn4:
