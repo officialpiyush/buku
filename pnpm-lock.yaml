@@ -10,8 +10,6 @@ specifiers:
   '@commitlint/cli': ^17.4.3
   '@commitlint/config-conventional': ^17.4.3
   '@firebase/app-types': ^0.9.0
-  '@iconify-json/carbon': ^1.1.15
-  '@iconify-json/twemoji': ^1.1.11
   '@nuxtjs/color-mode': ^3.2.0
   '@pinia/nuxt': ^0.4.6
   '@types/three': ^0.149.0
@@ -46,8 +44,6 @@ devDependencies:
   '@commitlint/cli': 17.4.3
   '@commitlint/config-conventional': 17.4.3
   '@firebase/app-types': 0.9.0
-  '@iconify-json/carbon': 1.1.15
-  '@iconify-json/twemoji': 1.1.11
   '@nuxtjs/color-mode': 3.2.0
   '@pinia/nuxt': 0.4.6_hmuptsblhheur2tugfgucj7gc4
   '@types/three': 0.149.0
@@ -1695,18 +1691,6 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iconify-json/carbon/1.1.15:
-    resolution: {integrity: sha512-O1JtNFRIFVCJwS0YpU9XmWmZIvZzvGBi+CL7dI2ofAU7b5XV6PNH2IVnwEGKCCxEyAPaok23lR5qpgC7AWbgkQ==}
-    dependencies:
-      '@iconify/types': 2.0.0
-    dev: true
-
-  /@iconify-json/twemoji/1.1.11:
-    resolution: {integrity: sha512-ZA2v2AGWPC0rxiZDLqsVD+DoYB3n5Ft5q0YYAsy9QyYvoNWSdh6Vxe5d3yUP4mSpNkE4YW96RAjiZu72uXb7kQ==}
-    dependencies:
-      '@iconify/types': 2.0.0
-    dev: true
-
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: true
@@ -2353,13 +2337,13 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.21.1
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
     dev: true
 
   /@types/eslint/8.21.1:
     resolution: {integrity: sha512-rc9K8ZpVjNcLs8Fp0dkozd5Pt2Apk1glO4Vgz8ix1u6yFByxfqo5Yavpy65o+93TAe24jr7v+eSBtFLvOQtCRQ==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
     dev: true
 
