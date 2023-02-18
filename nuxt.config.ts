@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@pinia/nuxt',
+    'nuxt-headlessui',
     '@nuxtjs/color-mode',
     '~/modules/build-env',
     [
