@@ -10,6 +10,7 @@ specifiers:
   '@commitlint/cli': ^17.4.3
   '@commitlint/config-conventional': ^17.4.3
   '@firebase/app-types': ^0.9.0
+  '@headlessui/vue': ^1.7.10
   '@nuxtjs/color-mode': ^3.2.0
   '@pinia/nuxt': ^0.4.6
   '@types/three': ^0.149.0
@@ -34,6 +35,7 @@ specifiers:
   vuefire: ^3.0.1
 
 dependencies:
+  '@headlessui/vue': 1.7.10_vue@3.2.47
   firebase: 9.17.1
   firebase-admin: 11.5.0
   nuxt-vuefire: 0.1.5_la4336ltao62qvx72o5hrq3ymm_xbz7jazegdukhj24nhrhhelvqu
@@ -1680,7 +1682,6 @@ packages:
       vue: ^3.2.0
     dependencies:
       vue: 3.2.47
-    dev: true
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}

@@ -35,6 +35,7 @@
     "unenv": "^1.2.0"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.10",
     "firebase": "^9.17.1",
     "firebase-admin": "^11.5.0",
     "nuxt-vuefire": "^0.1.5",
