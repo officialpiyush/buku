@@ -25,7 +25,7 @@
   "funding": "https://github.com/sponsors/posva",
   "dependencies": {
     "@nuxt/kit": "^3.0.0",
-    "lru-cache": "^7.14.1"
+    "lru-cache": "^8.0.0"
   },
   "peerDependencies": {
     "@firebase/app-types": ">=0.8.1",
