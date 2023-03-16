@@ -31,7 +31,7 @@
     "pinia": "^2.0.30",
     "simple-git": "^3.16.1",
     "std-env": "^3.3.2",
-    "typescript": "^4.9.5",
+    "typescript": "^5.0.0",
     "unenv": "^1.2.0"
   },
   "dependencies": {
