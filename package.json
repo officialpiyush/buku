@@ -43,7 +43,7 @@
     "vuefire": "^3.0.1"
   },
   "volta": {
-    "node": "18.14.2"
+    "node": "18.20.0"
   },
   "pnpm": {
     "patchedDependencies": {
