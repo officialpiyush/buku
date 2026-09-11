@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.10",
-    "firebase": "^9.17.1",
+    "firebase": "^10.0.0",
     "firebase-admin": "^11.5.0",
     "nuxt-vuefire": "^0.1.5",
     "three": "^0.150.0",
